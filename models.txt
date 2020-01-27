@@ -1,0 +1,46 @@
+abc_24.csv----
+
+gb_clf2 = GradientBoostingClassifier(learning_rate=0.005, n_estimators=3000,max_depth=9, min_samples_split=1200, min_samples_leaf=60, subsample=0.85, random_state=10, max_features=7,
+warm_start=True)
+
+gb_clf2.fit(X_train, y_train)
+predictions = gb_clf2.predict(X_test)
+
+print("Confusion Matrix:")
+print(confusion_matrix(y_test, predictions))
+
+print("Classification Report")
+print(classification_report(y_test, predictions))
+
+
+
+
+p_test5 = {'max_features':[2,3,4,5,6,7]}
+
+#gb_clf2 = GradientBoostingClassifier(learning_rate=0.005, n_estimators=3000,max_depth=9, min_samples_split=1200, min_samples_leaf=60, subsample=0.85, random_state=10, max_features=7,
+#warm_start=True)
+
+gb_clf2 = GradientBoostingClassifier(learning_rate=0.01, n_estimators=2100,max_depth=4, min_samples_split=40, min_samples_leaf=7, subsample=1, random_state=10)
+
+
+gb_clf2.fit(X_train, y_train)
+predictions = gb_clf2.predict(X_test)
+
+print("Confusion Matrix:")
+print(confusion_matrix(y_test, predictions))
+
+print("Classification Report")
+print(classification_report(y_test, predictions))
+
+
+
+XGboost
+abc = XGBClassifier(base_score=0.5, booster='gbtree', colsample_bylevel=1,
+       colsample_bytree=0.6, gamma=5, learning_rate=0.02, max_delta_step=0,
+       max_depth=5, min_child_weight=5, missing=None, n_estimators=3000,
+       n_jobs=1, nthread=1, objective='binary:logistic', random_state=0,
+       reg_alpha=0, reg_lambda=1, scale_pos_weight=1, seed=None,
+       silent=True, subsample=1.0)
+
+abc.fit(X_train, y_train)
+
